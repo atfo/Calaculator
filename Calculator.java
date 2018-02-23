@@ -52,25 +52,20 @@ public class Calculator extends javax.swing.JFrame {
 		return looking;
 	}
 
-	private static int[] BubbleSort(int[] numbers) {
-
+	private static int[] Bubblesort(int[] numbers) {  //change the name everywhere its not bbublesort exactly anymore
 		int size = numbers.length;
-		for (int i = 0; i < numbers.length; i++) {
+		boolean sorted=true;    //assume array is sorted
+		for(int i=0;i<size-1;i++){      //check if its actually sorted //O(n) time complexity
+			if(numbers[i]<=numbers[i+1]){}
+			else{
+				sorted=false;   //array is not sorted
+				break;
+			}
+				
 		}
-		boolean sorted = false;
 		while (!sorted) {
 			sorted = true;
-			for (int i = 0; i < size - 1; i++) {
-				if (numbers[i] > numbers[i + 1]) {
-					int temp = numbers[i];
-					numbers[i] = numbers[i + 1];
-					numbers[i + 1] = temp;
-					sorted = false;
-				}
-
-			}
-
-			size--;
+			Arrays.sort(numbers); //O(nlogn) time complexity (double pivot quick sort)
 		}
 		return numbers;
 
@@ -717,7 +712,7 @@ public class Calculator extends javax.swing.JFrame {
 		});
 
 		posneg.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-		posneg.setText("±");
+		posneg.setText("Â±");
 		posneg.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				posnegActionPerformed(evt);
